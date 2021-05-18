@@ -25,18 +25,25 @@
 
 <body>
 
-<!-- <?php include ("layout/header.php"); ?> -->
+<?php 
+  // session_start();exit;
+include ("layout/header.php"); 
+require "components/accounts.php";
+$accounts = get_accounts();
+?>
 
 <main>
+
       <section class="container my-5">
         <h2>Vos comptes bancaires</h2>
         <div class="row">
-        <!-- main content is loaded from acountsMake.php file -->
+        <?php include ("components/accountsMake.php"); ?>
         </div>
       </section>
-    </main>
-    <!-- <?php include ("components/homepage/acountsMake.php"); ?> -->
-<!-- <?php include ("layout/footer.php"); ?> -->
+
+</main>
+
+ <?php include ("layout/footer.php"); ?> 
 
   <!-- Add your site or application content here -->
   <script src="https://kit.fontawesome.com/6e3dce75fc.js" crossorigin="anonymous"></script>
