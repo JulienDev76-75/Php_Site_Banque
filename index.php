@@ -1,10 +1,11 @@
+// session_start();exit;
 <!doctype html>
 <html class="no-js" lang="fr">
 
 <head>
   <meta charset="utf-8">
   <title></title>
-  <meta name="description" content="">
+  <meta name="description" content="Banque Agricool">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:title" content="">
@@ -25,19 +26,36 @@
 
 <body>
 
+
+<?php
+// Connexion à la base de données
+try
+{
+	$bdd = new PDO('mysql:host=localhost;dbname=banque_sql;charset=utf8', 'root', 'Johnkeynes*!76');
+}
+catch(Exception $error)
+{
+        die('Erreur : '.$error->getMessage());
+}
+?>
+
+<?php
+//ISSET RULES
+?>
+
 <?php 
-  // session_start();exit;
 include ("layout/header.php"); 
-require "components/accounts.php";
+require "model/connexion.php";
+require "account/account.php";
 $accounts = get_accounts();
 ?>
 
 <main>
 
-      <section class="container my-5">
+      <section class="container mx-auto">
         <h2>Vos comptes bancaires</h2>
         <div class="row">
-        <?php include ("components/accountsMake.php"); ?>
+        <?php include ("account/accountsFormulaire.php"); ?>
         </div>
       </section>
 
