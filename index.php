@@ -1,63 +1,36 @@
-// session_start();exit;
-<!doctype html>
-<html class="no-js" lang="fr">
-
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="Banque Agricool">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
-  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-
-  <meta name="theme-color" content="#fafafa">
-</head>
-
-<body>
-
-
 <?php
-// Connexion à la base de données
-try
-{
-	$bdd = new PDO('mysql:host=localhost;dbname=banque_sql;charset=utf8', 'root', 'Johnkeynes*!76');
+session_start();
+if(!isset($_SESSION["user"])) {
+    header("Location: login.php");
+    exit;
 }
-catch(Exception $error)
-{
-        die('Erreur : '.$error->getMessage());
-}
-?>
 
-<?php
-//ISSET RULES
-?>
-
-<?php 
 include ("layout/header.php"); 
 require "model/connexion.php";
 require "account/account.php";
-$accounts = get_accounts();
+$accounts = getAccounts();
 ?>
 
 <main>
 
-      <section class="container mx-auto">
-        <h2>Vos comptes bancaires</h2>
-        <div class="row">
-        <?php include ("account/accountsFormulaire.php"); ?>
-        </div>
-      </section>
+<h2 class="text-center mt-5 text-danger">Vos comptes en banque</h2>
+<div class="row">
+    <!-- On parcours le tableau de compte à l'aide d'une foreach à syntaxe simplifiée -->
+    <?php foreach($accounts as $index => $account): ?>
+            <div class='col-6 col-md-4'>
+                <ul class="list-group my-5">
+                    <?php foreach($account as $key=>$value): ?>
+                        <li class="list-group-item"><?php echo "$key : $value"; ?></li>
+                    <?php endforeach ?>
+                        <li class="list-group-item text-center">
+                            <!-- On passe dans l'url la position du compte à afficher sur la page single -->
+                            <a class="btn btn-dark text-white px-5" href="singleAccount.php?index=<?php echo $index;?>">Accédez aux détails</a>
+                        </li>
+                </ul>
+            </div>
+    <!-- On ferme la foreach (équivalent de l'accolade fermante) -->
+    <?php endforeach; ?>
+</div>
 
 </main>
 
