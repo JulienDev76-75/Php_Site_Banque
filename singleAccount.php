@@ -5,12 +5,11 @@ require "model/operationModel.php";
 require "model/accountModel.php";
 require "model/connexion.php";
 
-$account = getSingleAccount($db, );
+$accounts = getSingleAccount($db, "");
 if(isset($_GET["index"]) && isset($accounts)) {
     $account = $accounts;     
 } else {
-    $error = "Nous ne parvenons pas à récupérer le compte, il n'existe peut être pas. ";     
-}
+    $error = "Nous ne parvenons pas à récupérer le compte, veuillez recommencer plus tard";
 ?>
 
 <?php if(isset($accounts)): ?>

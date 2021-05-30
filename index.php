@@ -27,8 +27,8 @@ $accounts = getAccounts($db, $_SESSION["user"]["id"]);
                 <div class="card-body">
                     <h3 class="card-title"><?php echo $_SESSION["user"]["firstname"] ." ". $_SESSION["user"]["lastname"];?></h5>
                     <p class="card-subtitle"><?php echo $account["account_name"]?></p>
-                    <p class="card-text"><?php echo "N° de compte : " . $account["account_number"]?></p>
-                    <p class="card-text"><?php echo $account["amount_account"]?></p>          
+                    <p class="card-text"><?php echo "N° de compte : " . $account["account_number"] ?></p>
+                    <p class="card-text"><?php echo "Votre compte contient : " . $account["amount_account"] . " euros"?></p>          
                     <a class="btn btn-dark text-white px-5" href="singleAccount.php?index=<?php echo $index;?>">Accédez aux détails</a>
                 </div>
             </div>

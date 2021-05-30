@@ -9,7 +9,7 @@ if (!empty($_POST)) {
 <div class="row">
     <aside class="col-12 col-md-4">
         <h2>Créer un compte</h2>
-        <form action="newAccount.php" method="post" >
+        <form action="addAccount.php" method="post" >
             <input name="name" class="form-control my-2" type="text">
             <input name="amount" class="form-control my-2" type="number">
             <input name="addAccount" class="form-control btn btn-dark text-white my-2" type="submit" value="Envoyer">

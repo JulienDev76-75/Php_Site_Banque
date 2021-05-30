@@ -15,10 +15,10 @@ function getAccounts (PDO $db, int $customer_id) {
 // ON a.account_id = c.customer_id
 // WHERE customer_id=:customer_id
 
-function getSingleAccount (PDO $db, int $account_id) {
-    $query = $db->prepare("SELECT * FROM operation WHERE account_id=:account_id");
+function getSingleAccount (PDO $db, string $last_operation_type) {
+    $query = $db->prepare("SELECT * FROM account_operation WHERE last_operation_type=:last_operation_type");
     $query->execute([
-        "account_id" => $account_id
+        "last_operation_type" => $last_operation_type
     ]);
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
     return $result;
