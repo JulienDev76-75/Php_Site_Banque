@@ -29,18 +29,21 @@
 <header>
 <div class="text-center text-white bg-dark pt-5">
   <h3>La Banque Agricool</h3>
+  <a class="btn btn-danger text-center text-white mb-5" href="logout.php">déconnexion</a>
+
 <ul class="nav">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+    <a class="nav-link active text-white" aria-current="page" href="index.php">Accueil</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="statistique">statistique</a>
+    <a class="nav-link text-white" href="statistique.php">statistique</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">operation</a>
+    <a class="nav-link text-white" href="#">operation</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white" href="newAccount.php">créer comptes</a>
   </li>
 </ul>
-<a class="btn btn-primary text-white mb-5 " href="login.php">connexion</a>
-<a class="btn btn-danger text-white mb-5" href="logout.php">déconnexion</a>
 </div>
 </header>

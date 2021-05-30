@@ -25,7 +25,7 @@
     include "layout/header.php";
 ?>
 
-<h2>accédez à mon espace</h2>  
+<h2 class="text-center mt-5">accédez à mon espace</h2>  
 
 
 <form action="" method="post" class="w-75 mx-auto my-5">
