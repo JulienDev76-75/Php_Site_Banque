@@ -31,51 +31,51 @@
                 }
             }
 
-            if(empty($user["firstname"])) 
-            {
-                echo 'Votre' . $_POST['motdepasse'] . ' est <strong>valide</strong> !';
-                }
-                else
-                {
-                 echo 'Mot de passe invalide';
-                }
-            }
+            // if(empty($user["firstname"])) 
+            // {
+            //     echo 'Votre' . $_POST['motdepasse'] . ' est <strong>valide</strong> !';
+            //     }
+            //     else
+            //     {
+            //      echo 'Mot de passe invalide';
+            //     }
+            // }
 
-            if(empty($user["motdepasse"])) 
-            {
-                if (preg_match("", $_POST['motdepasse']))
-                {
-                echo 'Votre' . $_POST['motdepasse'] . ' est <strong>valide</strong> !';
-                }
-                else
-                {
-                 echo 'Mot de passe invalide';
-                }
-            }
+            // if(empty($user["motdepasse"])) 
+            // {
+            //     if (preg_match("", $_POST['motdepasse']))
+            //     {
+            //     echo 'Votre' . $_POST['motdepasse'] . ' est <strong>valide</strong> !';
+            //     }
+            //     else
+            //     {
+            //      echo 'Mot de passe invalide';
+            //     }
+            // }
 
-            if(empty($user["motdepasse"])) 
-            {
-                if (preg_match("", $_POST['motdepasse']))
-                {
-                echo 'Votre' . $_POST['motdepasse'] . ' est <strong>valide</strong> !';
-                }
-                else
-                {
-                 echo 'Mot de passe invalide';
-                }
-            }
+            // if(empty($user["motdepasse"])) 
+            // {
+            //     if (preg_match("", $_POST['motdepasse']))
+            //     {
+            //     echo 'Votre' . $_POST['motdepasse'] . ' est <strong>valide</strong> !';
+            //     }
+            //     else
+            //     {
+            //      echo 'Mot de passe invalide';
+            //     }
+            // }
 
-            if(empty($user["motdepasse"])) 
-            {
-                if (preg_match("", $_POST['motdepasse']))
-                {
-                echo 'Votre' . $_POST['motdepasse'] . ' est <strong>valide</strong> !';
-                }
-                else
-                {
-                 echo 'Mot de passe invalide';
-                }
-            }
+            // if(empty($user["motdepasse"])) 
+            // {
+            //     if (preg_match("", $_POST['motdepasse']))
+            //     {
+            //     echo 'Votre' . $_POST['motdepasse'] . ' est <strong>valide</strong> !';
+            //     }
+            //     else
+            //     {
+            //      echo 'Mot de passe invalide';
+            //     }
+            // }
         
         }
         $result = addUser($db);

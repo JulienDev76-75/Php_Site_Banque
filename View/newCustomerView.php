@@ -1,10 +1,9 @@
 <?php require "layout/header.php"; ?>
 
-<div class="container-fluid mx-auto">
+<div class="container mx-auto w-10">
 <!-- rappel : $user = $_POST -->
-    <section class="row text-center my-4 mx-auto p-5">
 
-        <div class="col-12 col-md-6 p-5">
+        <div class="col-12 col-md-6 p-5 mx-auto">
             <h2>Pour créer un compte :</h2>
             <form action="newCustomer.php" method="post">
                 <select class="form-select m-4 p-3" for="account_type" name="account_type">
@@ -22,8 +21,6 @@
                 <input name="validation" class="form-control btn btn-dark m-4 p-3" type="submit" value="Envoyer">
             </form>
         </div>
-
-    </section>
 
 </div>
 

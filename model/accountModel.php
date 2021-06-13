@@ -25,15 +25,15 @@ function getSingleAccount (PDO $db, int $customer_id, int $id) {
     return $result;
 }
 
-// function addAccount(PDO $db) {
-//     $query = $db->prepare("INSERT INTO account(account_name, account_number, amount_account, creation_date, customer_id) VALUES(:account_type, :account_number, :amount_account, NOW(), :customer_id)");
-//     $result = $query->execute([
-//        'account_name' => $_POST["account_name"],
-//         'amount' => $_POST["amount_account"],
-//         'user_id' => $_SESSION["user"]["id"],
-//         ]);
-//     return $result;     
-// }
+function addAccount(PDO $db) {
+    $query = $db->prepare("INSERT INTO account(account_name, account_number, amount_account, creation_date, customer_id) VALUES(:account_type, :account_number, :amount_account, NOW(), :customer_id)");
+    $result = $query->execute([
+       'account_name' => $_POST["account_name"],
+        'amount' => $_POST["amount_account"],
+        'user_id' => $_SESSION["user"]["id"],
+        ]);
+    return $result;     
+}
 
 // function updateAccounts(PDO $db, int $amount_account, int $account_id) {
 //     $query = $db->prepare("UPDATE account SET amount_account =:amount_account WHERE id =:account_id");

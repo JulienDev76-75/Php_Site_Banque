@@ -36,7 +36,7 @@
     <a class="nav-link active text-white" aria-current="page" href="index.php">Accueil</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-white" href="statistic.php">Statistique</a>
+    <a class="nav-link text-white" href="statistic.php">Statistiques</a>
   </li>
   <li class="nav-item">
     <a class="nav-link text-white" href="operation.php">Operations Courantes</a>
