@@ -36,13 +36,16 @@
     <a class="nav-link active text-white" aria-current="page" href="index.php">Accueil</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-white" href="statistique.php">statistique</a>
+    <a class="nav-link text-white" href="statistic.php">Statistique</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-white" href="#">operation</a>
+    <a class="nav-link text-white" href="operation.php">Operations Courantes</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-white" href="newAccount.php">créer comptes</a>
+    <a class="nav-link text-white" href="addAccount.php">Créer comptes</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white" href="newCustomer.php">Inscription</a>
   </li>
 </ul>
 </div>

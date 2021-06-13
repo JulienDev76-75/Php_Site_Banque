@@ -16,14 +16,19 @@ $result = $query->fetch(PDO::FETCH_ASSOC);
 //tu retournes le résultat $result qui sera pour l'instant sous forme de TABLEAU
 //si tu veux afficher -> $result["email"] par exemple, tu peux concaténer les variables
 return $result;
+};
+
+function addUser(PDO $db, $_POST) {
+    $query = $db->prepare("INSERT INTO customer(firstname, lastname, profession, city, postal_code, phone) VALUES(:firstname, :lastname, :profession, :city, :postal_code, :phone)");
+    $result = $query->execute([
+        'firstname' => $_POST["firstname"],
+        'lastname' => $_POST["lastname"],
+        'profession' => $_POST["profession"],
+        'city' => $_POST["city"],
+        'postal_code' => $_POST["postal_code"],
+        'phone' => $_POST["phone"],
+        ]);
+    return $result;     
 }
 
 ?>
-
-<!-- (php) while $result = $query->fetch() { (finphp)
-<table>
-<tr>
-    <td> (php) echo $result["firstname"];(finphp) </td>
-    <td> (php) echo $result["lastname"];(finphp) </td>
-</tr>
-} -->

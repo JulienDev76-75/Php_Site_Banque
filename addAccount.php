@@ -28,3 +28,52 @@ if (!empty($_POST)) {
 <?php
 include "layout/footer.php";
 ?>
+
+<?php
+require "model/connexion.php";
+require "model/accountModel.php";
+session_start();
+$account = $_POST;
+
+if(!empty($_POST)) {
+  if(!isset($_POST["amount_account"]) || $_POST["amount"] > 0 )
+  {
+    $error = "<div class='alert alert-danger text-center' role='alert'><h2>Montant minimum 30 euros</h2></div>";
+  }     
+  
+  else 
+  {
+    $result = addAccount($db);
+    if($result) {
+      $success = "<div class='alert alert-secondary text-center' role='alert'><h2>Votre compte a bien été créé</h2></div>";
+     }  else {
+      $error = "<div class='alert alert-danger text-center' role='alert'><h2>Nous n'avons pas réussi a créer le compte</h2></div> ";
+     }
+  } 
+};
+
+if(!empty($_POST) && (!isset($_POST)) {
+
+    foreach($account as $key => $value) {
+        $account[$key] = htmlentities($value);
+    }
+    if(empty($account["name"])) {
+        $error = "Veuillez rentrer un nom de compte";
+    }
+    if(empty($account["amount"]) || !is_int($account["amount"])) {
+        $error = "Veuillez rentrer un montant valide";
+    }
+}
+
+include "view/newAccountView.php";
+
+<!-- $_FILES['accountCreate.php']['prénom'] 
+// Testons si le fichier a bien été envoyé et s'il n'y a pas d'erreur
+if (isset($_FILES['monfichier']) AND $_FILES['monfichier']['error'] == 0)
+{
+ 
+}
+
+
+
+

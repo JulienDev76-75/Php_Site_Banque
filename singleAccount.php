@@ -1,31 +1,20 @@
 <?php
 
-include "layout/header.php";
-require "model/operationModel.php";
+session_start();
+if(!isset($_SESSION["user"])) {
+    header("Location: login.php");
+    exit;
+}
+
 require "model/accountModel.php";
 require "model/connexion.php";
 
-$accounts = getSingleAccount($db, "");
-if(isset($_GET["index"]) && isset($accounts)) {
-    $account = $accounts;     
-} else {
+if(isset($_GET["id"]) && !empty($_GET["id"])) {    
+    $account = getSingleAccount($db, $_SESSION["user"]["id"], $_GET["id"]);
+} 
+
+else {
     $error = "Nous ne parvenons pas à récupérer le compte, veuillez recommencer plus tard";
-?>
-
-<?php if(isset($accounts)): ?>
-    <?php foreach($accounts as $index => $account): ?>
-        <h2>Votre compte :  <?php echo $account["account_type"]; ?></h2>
-        <h3>Votre compte :  <?php echo $account["account_type"]; ?></h3>                         
-        <a class="btn btn-dark text-white px-5" href="operation.php?index=<?php echo $account["id"];?>">Quelle opération voulez-vous faire ? </a>
-    <?php endforeach ?>
-    <?php else: ?>
-        <div class="alert alert-secondary" role="alert">
-        <h2> <?php echo $error; ?></h2>
-        <p> essayez donc de revenir à <a href="index.php" class="btn btn-dark text-white">Accueil</a>
-        </div>
-    <?php endif ?>
-
-
-<?php
-include "layout/footer.php";
+}
+require "view/singleAccountView.php";
 ?>

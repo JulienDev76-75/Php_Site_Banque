@@ -7,16 +7,14 @@ GRANT ALL PRIVILEGES ON banque_php.* To 'BanquePhp'@'Localhost' IDENTIFIED BY 'J
 
 CREATE TABLE customer (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    firstname VARCHAR(50) NOT NULL,
-    lastname VARCHAR(50) NOT NULL,
-    profession VARCHAR(50) NOT NULL,
-    number_secu VARCHAR(40) NOT NULL,
-    birthday DATE NOT NULL,
-    city VARCHAR(50) NOT NULL,
+    firstname VARCHAR(250) NOT NULL,
+    lastname VARCHAR(250) NOT NULL,
+    profession VARCHAR(250) NOT NULL,
+    city VARCHAR(250) NOT NULL,
     postal_code VARCHAR(50) NOT NULL,
-    country VARCHAR(50) NOT NULL,
+    country VARCHAR(250) NOT NULL,
     mail VARCHAR(50) NOT NULL,
-    customer_password VARCHAR(50) NOT NULL,
+    customer_password VARCHAR(255) NOT NULL,
     phone INT(14) NOT NULL,
     PRIMARY KEY (id)
 );
@@ -45,25 +43,27 @@ CREATE TABLE account_operation (
 
 INSERT INTO customer (firstname, lastName, profession, number_secu, birthday, city, postal_code, country, mail, customer_password, phone) 
 VALUES 
-('Julien', 'Coart', 'poète amateur', '1 53 12 45 007 231 48','1987-10-30','Rouen','76100', 'France', 'julien.coart@gmail.com', 'lesalamicpasbon50', 0612548654),
-('Bob', 'LeBricoleur', 'artisan', '1 53 14 44 080 501 76','1975-05-28','Rouen','76100', 'France', 'juvabien.juvamine@gmail.com', 'lesalamictropbon59', 0665656565);
+('Julien', 'Coart', 'poète amateur','Rouen','76100', 'France', 'julien.coart@gmail.com', 'lesalamicpasbon50', 0612548654),
+('Bob', 'LeBricoleur', 'artisan','Rouen','76100', 'France', 'juvabien.juvamine@gmail.com', 'lesalamictropbon59', 0665656565),
+('Bob', 'LeMarrant', 'chomeur professionnel','Paris','75000', 'France', 'boblemarrant@gmail.com', 'motdepasse', 0660594835);
 
 INSERT INTO account (account_name, account_number, amount_account, creation_date, customer_id) 
 VALUES  
-('Assurance Vie', 'N°AV15203254', 1250.10, '1980-05-02', 1),
+('PEL', 'N°AV15203254', 1250.10, '1987-10-02', 1),
 ('PEL', 'N°P50642304', 5015, '1890-06-05', 2),
-('LivretA', 'N°150350564', 100, '1975-11-10', 2);
+('LivretA', 'N°150350564', 100, '1975-11-10', 2),
+('LivretA', 'N°AV15203254', 1250.10, '1987-05-06', 1),
+('LivretA', 'N°AP804804', 910.50, '2011-05-07', 3),
+('PEL', 'N°P450405', 54000, '2021-09-15', 3),
+('PER', 'N°PE68405', 568, '2021-12-16', 3),
+('PER', 'N°PE56044', 654, '2021-10-15', 1);
 
 INSERT INTO account_operation (last_operation_type, last_operation_name, last_operation_amount, last_operation_date, account_id)
 VALUES  
 ('Debit', 'La pizza à Pipo', -50.60, '2021-05-05 17:12:00', 2),
 ('Debit', 'Retrait DAB', -90, '2021-09-21 11:57:00', 2),
-('Credit', 'LivretA', 60, '2020-10-30 10:16:00', 3);
-
-
-
-
-
-
-
-
+('Credit', 'LivretA', 60, '2020-10-30 10:16:00', 3),
+('Credit', 'PEL', 50, '2021-05-05 17:12:00', 1),
+('Debit', 'La pizza à Pipo', -50.60, '2021-05-05 16:45:00', 1),
+('Debit', 'Intermarché', -45.90, '2021-05-05 11:22:00', 1),
+('Credit', 'PEL', 60, '2021-10-30 12:26:00', 3);
